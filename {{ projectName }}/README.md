@@ -36,6 +36,7 @@ npm run start
 ```
 
 ## 部署函数到云端
+部署函数的时候需要用到 AK 等下信息，可以通过 fun config 来配置，如果配置过请忽略，部署函数命令如下：
 
 ```bash
 npm run deploy
