@@ -1,0 +1,31 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  {{ projectName }}-service: # service name
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: ''
+    {{ projectName }}: # function name
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: fc.handler
+        Runtime: nodejs8
+        CodeUri: '.'
+        Timeout: 60
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods: ['POST', 'GET']
+  # nextGroup:
+  #   Type: 'Aliyun::Serverless::Api'
+  #   Properties:
+  #     StageName: RELEASE
+  #     DefinitionBody:
+  #       '/':
+  #         get:
+  #           x-aliyun-apigateway-api-name: nextApi
+  #           x-aliyun-apigateway-fc:
+  #             arn: acs:fc:::services/${ {{ projectName }}-service.Arn}/functions/${ {{ projectName }}.Arn}/
+  #             timeout: 10000

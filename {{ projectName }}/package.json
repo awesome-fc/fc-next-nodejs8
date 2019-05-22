@@ -1,0 +1,20 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npm run build && fun local start",
+    "deploy": "npm run build && fun deploy"
+  },
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@webserverless/fc-express": "latest",
+    "express": "^4.17.0",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
